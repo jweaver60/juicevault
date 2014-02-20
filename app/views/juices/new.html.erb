@@ -1,0 +1,16 @@
+<% content_for(:title, 'Create New Juice') %>
+
+<div class="row">
+	<div class="small-12 columns">
+		<h1>Create New Juice</h1>
+
+		<%= form_for @juice, url: {action: "create"} do |f| %>
+  		<div><%= f.label :name %><br />
+  		<%= f.text_field :name %></div>
+  		<div><%= f.label :manufacturer %><br />
+  		<%= f.text_field :manufacturer %></div>
+  		<%= f.submit "Create Juice", class: 'button small' %>
+		<% end %>
+
+	</div>
+</div>
