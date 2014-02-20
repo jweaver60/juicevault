@@ -3,7 +3,15 @@
 <div class="row">
 	<div class="small-12 columns">
 		<h1>Create New Juice</h1>
-
+		<% if @juice.errors.any? %>
+	    <div data-alert class="alert-box warning">
+	      <%= pluralize(@juice.errors.count, "error") %> prohibited this juice from being saved:<br />
+	      <% @juice.errors.full_messages.each do |msg| %>
+	        <%= "- " + msg %><br />
+	      <% end %>
+	      <a href="#" class="close">&times;</a>
+	    </div>
+  	<% end %>
 		<%= form_for @juice, url: {action: "create"} do |f| %>
   		<div><%= f.label :name %><br />
   		<%= f.text_field :name %></div>

@@ -15,7 +15,7 @@ class JuicesController < ApplicationController
 		if @juice.save
 			redirect_to juices_path
 		else
-			render "new"
+			render :new
 		end
 	end
 
