@@ -19,10 +19,14 @@ class JuicesController < ApplicationController
 		end
 	end
 
+	def show
+		@juice = Juice.find(params[:id])
+	end
+
 	private
 
 	def juice_params
-    params.require(:juice).permit(:name, :manufacturer)
+    params.require(:juice).permit(:name, :manufacturer, :category, :image_url)
   end
 
 end
