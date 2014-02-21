@@ -13,6 +13,7 @@ class JuicesController < ApplicationController
 		@juice = Juice.new(juice_params)
 		@juice.user_id = current_user.id
 		if @juice.save
+			current_user.favorites << @juice
 			redirect_to juices_path
 		else
 			render :new
@@ -21,6 +22,7 @@ class JuicesController < ApplicationController
 
 	def show
 		@juice = Juice.find(params[:id])
+		@comment = Comment.new
 	end
 
 	def favorite
