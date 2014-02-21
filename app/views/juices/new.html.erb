@@ -3,7 +3,7 @@
 <div class="row">
 	<div class="small-12 columns">
 		<h1>Create New Juice</h1>
-		<p>Please check to see if the juice already exists before creating a new one. Duplicates will eventually be removed, with the oldest entry taking highest priority.</p>
+		<p>Please search to see if the juice already exists before creating a new one. Duplicates will eventually be removed, with the oldest entry taking highest priority.</p>
 		<% if @juice.errors.any? %>
 	    <div data-alert class="alert-box warning">
 	      <%= pluralize(@juice.errors.count, "error") %> prohibited this juice from being saved:<br />
