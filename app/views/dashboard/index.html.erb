@@ -8,7 +8,7 @@
 <div class="row">
 	<% @juices.each do |juice| %>
 		<div class="small-12 large-3 columns">
-			<%= juice.name %>
+			<h2><%= link_to juice.name, juice_path(juice) %></h2>
 		</div>
 	<% end %>
 </div>
