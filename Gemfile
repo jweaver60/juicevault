@@ -29,6 +29,10 @@ gem 'foundation-rails'
 # LetsRate functionality
 gem 'letsrate'
 
+# For Heroku
+gem 'rails_12factor', group: :production
+gem 'pg'
+
 # Use Devise for authentication
 gem 'devise'
 
