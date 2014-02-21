@@ -17,72 +17,30 @@
 					<li>See what juices your friends are using</li>
 				</ul>
 			</div>
-			<button class="primary expand">Sign Up For JuiceVault!</button>
+			<%= link_to "Sign Up For JuiceVault!", new_user_registration_path, class: 'button primary expand' %>
 		</div>
 		<div class="row panel hide-for-small-only">
 			<h3>New Users</h3>
 			<ul>
-				<li>VapeDude</li>
-				<li>CloudChazer</li>
-				<li>VAPOR_SUCKER</li>
+				<% @recent_users.each do |user| %>
+					<li><%= user.username %></li>
+				<% end %>
 			</ul>
 		</div>
 	</div>
 	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
 		<div class="row">
-			<div class="small-12 columns panel">
-				<div class="row">
-					<h4>Product Name</h4>
-					<h6>Product Vendor</h6>
+			<% @recent_juices.each do |juice| %>
+				<div class="small-12 columns panel">
+					<div class="row">
+						<h4><%= juice.name %></h4>
+						<h6><%= juice.manufacturer %></h6>
+					</div>
+					<div class="row">
+						<p><%= juice.description %></p>
+					</div>
 				</div>
-				<div class="row">
-					<p>Product description will go here, and hopefully be tructuated</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="small-12 columns panel">
-				<div class="row">
-					<h4>Product Name</h4>
-					<h6>Product Vendor</h6>
-				</div>
-				<div class="row">
-					<p>Product description will go here, and hopefully be tructuated</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="small-12 columns panel">
-				<div class="row">
-					<h4>Product Name</h4>
-					<h6>Product Vendor</h6>
-				</div>
-				<div class="row">
-					<p>Product description will go here, and hopefully be tructuated</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="small-12 columns panel">
-				<div class="row">
-					<h4>Product Name</h4>
-					<h6>Product Vendor</h6>
-				</div>
-				<div class="row">
-					<p>Product description will go here, and hopefully be tructuated</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="small-12 columns panel">
-				<div class="row">
-					<h4>Product Name</h4>
-					<h6>Product Vendor</h6>
-				</div>
-				<div class="row">
-					<p>Product description will go here, and hopefully be tructuated</p>
-				</div>
-			</div>
+			<% end %>
 		</div>
 	</div>
 </div>

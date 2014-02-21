@@ -3,6 +3,7 @@ class Juice < ActiveRecord::Base
 	has_many :favorite_juices
 	has_many :favorited_by, through: :favorite_juices, source: :user
 	has_many :comments
+	has_many :ratings
 
 	validates :name, presence: true
 	validates :manufacturer, presence: true
