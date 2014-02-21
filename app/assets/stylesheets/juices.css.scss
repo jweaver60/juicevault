@@ -1,11 +1,30 @@
 // Place all the styles related to the Juices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1, h2 {
-	display: inline-block;
+.product-image {
+	height: 150px;
+	max-height: 150px;
+	width: 150px;
+	overflow: hidden;
+	background: white;
+	display: table;
+	margin-right: 1em;
+	img {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	float: left;
 }
-h2 {
-	&:before {
-		content: " - "
+h1 {
+	font-weight: 800;
+	margin: .02em;
+}
+.search {
+	@extend .sidebar;
+	input[type=text], .postfix {
+		margin-bottom: 0;
+	}
+	.postfix {
+		border: none;
 	}
 }

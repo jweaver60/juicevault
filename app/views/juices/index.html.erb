@@ -1,16 +1,50 @@
-<% content_for(:title, 'My Juices') %>
+<% content_for(:title, 'Latest Juices') %>
 
 <div class="row">
 	<div class="small-12 columns">
 		<h1>Latest Juices</h1>
-		<ul>
-			<% @juices.each do |juice| %>
-				<li><%= link_to juice.name, juice_path(juice) %></li>
-				<% if user_signed_in? %>
-  				<%= link_to "favorite",   favorite_juice_path(juice, type: "favorite"), method: :put %>
-  				<%= link_to "unfavorite", favorite_juice_path(juice, type: "unfavorite"), method: :put %>
-				<% end %>
-			<% end %>
-		</ul>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-4 medium-push-8 columns sidebar">
+		<div class="row panel search">
+			<div class="row collapse">
+				<div class="small-8 columns">
+					<input type="text" placeholder="Search for a name, brand, or flavor">
+				</div>
+				<div class="small-4 columns">
+					<button class="primary postfix">Search</button>
+				</div>
+			</div>
+		</div>
+		<div class="row panel hide-for-small-only">
+			<h3>New Users</h3>
+			<ul>
+				<li>VapeDude</li>
+				<li>CloudChazer</li>
+				<li>VAPOR_SUCKER</li>
+			</ul>
+		</div>
+	</div>
+	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
+		<% @juices.each do |juice| %>
+			<div class="row">
+				<div class="small-12 columns panel">
+					<div class="row">
+						<h4><%= link_to juice.name, juice_path(juice) %></h4>
+						<h6><%= juice.manufacturer %></h6>
+					</div>
+					<div class="row">
+						<p><%= juice.description %></p>
+						<% if user_signed_in? %>
+			  				<p>
+			  					<%= link_to "favorite",   favorite_juice_path(juice, type: "favorite"), method: :put %>
+			  					<%= link_to "unfavorite", favorite_juice_path(juice, type: "unfavorite"), method: :put %>
+			  				</p>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		<% end %>
 	</div>
 </div>

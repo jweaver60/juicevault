@@ -1,32 +1,45 @@
 <% content_for(:title, @juice.name) %>
 
 <div class="row">
-	<div class="small-12 columns">
-		<img src="<%= featured_image(@juice) %>" alt="<%= @juice.name %>" />
-		<h1><%= @juice.name %></h1><h2><%= @juice.manufacturer %></h2>
-		<h3><%= @juice.category %></h3>
-		<h4><%= @juice.description %></h4>
-		<a href="<%= @juice.vendor_url %>">Buy it here</a>
+	<div class="small-12 large-6 columns">
+		<div class="row">
+			<div class="small-12 columns">
+				<div class="product-image"><img src="<%= featured_image(@juice) %>" alt="<%= @juice.name %>" /></div>
+				<h1><%= @juice.name %></h1>
+				<h2>By: <%= @juice.manufacturer %></h2>
+				<p>Category: <%= @juice.category %></p>
+			</div>	
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<p><%= @juice.description %></p>
+				<a href="<%= @juice.vendor_url %>" class="button success">Buy it here</a>		
+			</div>
+		</div>
 	</div>
-</div>
+	<div class="small-12 large-6 columns">
+		<div class="row">
+			<div class="small-12 columns">
+				<h3 class="h1">Reviews</h3>
+				<% if @juice.comments.present? %>
+					<% @juice.comments.each do |comment| %>
+						<p><%= comment.body %></p>
+					<% end %>
+				<% else %>
+					No reviews yet. Be the first to leave a review!
+				<% end %>
+			</div>
+		</div>
 
-<% if @juice.comments.present? %>
-<div class="row">
-	<div class="small-12 columns">
-		<% @juice.comments.each do |comment| %>
-			<p><%= comment.body %></p>
-		<% end %>
-	</div>
-</div>
-<% end %>
-
-<div class="row">
-	<div class="small-12 columns">
-		<h1>Add Review</h1>
-		<%= form_for ([@juice, @comment]) do |f| %>
-			<div><%= f.label :body, "New Review" %><br />
-			<%= f.text_area :body %></div>
-			<%= f.submit "Submit Review", class: "button small" %>
-		<% end %>
+		<div class="row">
+			<div class="small-12 columns">
+				<h3 class="h4">Add Review</h1>
+				<%= form_for ([@juice, @comment]) do |f| %>
+					<div><%= f.label :body, "New Review" %><br />
+					<%= f.text_area :body %></div>
+					<%= f.submit "Submit Review", class: "button tiny" %>
+				<% end %>
+			</div>
+		</div>	
 	</div>
 </div>
