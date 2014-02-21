@@ -5,4 +5,12 @@ module ApplicationHelper
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=identicon"
   end
 
+  def featured_image(juice)
+  	if juice.image_url
+  		juice.image_url
+  	else
+  		image_path("missingimage.png")
+  	end
+  end
+
 end
