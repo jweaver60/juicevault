@@ -27,6 +27,10 @@
 		padding-left: 2em;
 		h4, h6 {
 			display: inline-block;
+			
+		}
+		h6:before {
+			content: " - "
 		}
 		p {
 			margin-bottom: 0px;
@@ -38,10 +42,7 @@
 } 
 
 .sidebar {
-	.panel {
+	.register {
 		border-bottom: none;
-	}
-	&:last-child {
-		border-bottom: 1px solid #d8d8d8;
 	}
 }
