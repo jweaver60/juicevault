@@ -9,12 +9,14 @@
 	<div class="small-12 medium-4 medium-push-8 columns sidebar">
 		<div class="row panel search">
 			<div class="row collapse">
-				<div class="small-8 columns">
-					<input type="text" placeholder="Search for a name, brand, or flavor">
-				</div>
-				<div class="small-4 columns">
-					<button class="primary postfix">Search</button>
-				</div>
+				<%= form_tag juices_path, :method => 'GET' do %>
+					<div class="small-8 columns">
+						<%= text_field_tag :search, params[:search], placeholder: "Search for a name, brand or category" %>
+					</div>
+					<div class="small-4 columns">
+						<%= submit_tag "Search", :name => nil, class: "button primary postfix" %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>

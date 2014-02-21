@@ -6,10 +6,10 @@ module ApplicationHelper
   end
 
   def featured_image(juice)
-  	if juice.image_url
-  		juice.image_url
-  	else
+  	if juice.image_url.blank?
   		image_path("missingimage.png")
+  	else
+  		juice.image_url
   	end
   end
 
