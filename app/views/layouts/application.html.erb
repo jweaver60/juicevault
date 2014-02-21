@@ -21,6 +21,12 @@
           <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
         </ul>
         <section class="top-bar-section">
+          <!-- Left Nav Section -->
+          <% if user_signed_in? %>
+            <ul class="left">
+              <li><%= link_to current_user.username, juices_path %></li>
+            </ul>
+          <% end %>
           <!-- Right Nav Section -->
           <ul class="right">
             <% if user_signed_in? %>
