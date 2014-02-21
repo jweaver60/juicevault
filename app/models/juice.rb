@@ -3,4 +3,5 @@ class Juice < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :manufacturer, presence: true
+	validates :category, presence: true
 end

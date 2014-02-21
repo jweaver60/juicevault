@@ -1,0 +1,14 @@
+<% content_for(:title, 'Dashboard') %>
+
+<div class="row">
+	<div class="small-12 columns">
+		<h1><%= current_user.username %>'s Juices</h1>
+	</div>
+</div>
+<div class="row">
+	<% @juices.each do |juice| %>
+		<div class="small-12 large-3 columns">
+			<%= juice.name %>
+		</div>
+	<% end %>
+</div>
