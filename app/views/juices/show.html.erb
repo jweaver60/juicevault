@@ -6,26 +6,9 @@
 		<h1><%= @juice.name %></h1><h2><%= @juice.manufacturer %></h2>
 		<h3><%= @juice.category %></h3>
 		<h4><%= @juice.description %></h4>
-		<div id="user_star"></div>
 		<a href="<%= @juice.vendor_url %>">Buy it here</a>
 	</div>
 </div>
-
-<script>
-	$(document).ready(function() {
-		$('#user_star').raty({
-	    score: <%= @rating.score %>,
-	    path: '/assets',
-	    click: function(score, evt) {
-	      $.ajax({
-	        url: '/ratings/' + <%= @rating.id %>,
-	        type: 'PATCH',
-	        data: { score: score }
-	      });
-	    }
-	  });
-	});
-</script>
 
 <% if @juice.comments.present? %>
 <div class="row">
