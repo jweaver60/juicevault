@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
 
   <body>
@@ -35,6 +36,7 @@
                 <%= link_to image_tag(avatar_url(current_user, 28), :alt => current_user.email, :class => 'avatar') + current_user.username, dashboard_index_path %>
                 <ul class="dropdown">
                   <li><%= link_to 'Dashboard', dashboard_index_path %></li>
+                  <li><%= link_to "Account Settings", edit_user_registration_path %></li>
                   <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
                 </ul>
               </li>
