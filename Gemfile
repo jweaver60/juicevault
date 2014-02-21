@@ -31,7 +31,7 @@ gem 'letsrate'
 
 # For Heroku
 gem 'rails_12factor', group: :production
-gem 'pg'
+# gem 'pg'
 
 # Use Devise for authentication
 gem 'devise'

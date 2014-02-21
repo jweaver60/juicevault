@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<h1><%= current_user.username %>'s Juices <small>(<%= current_user.favorites.count %>)</small></h1>
+		<h1><%= current_user.username %>'s Favorite Juices <small>(<%= current_user.favorites.count %>)</small></h1>
 	</div>
 </div>
 <div class="row">
@@ -30,12 +30,14 @@
 	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
 		<% @juices.each do |juice| %>
 			<div class="row">
-				<div class="small-12 columns panel">
-					<div class="row">
-						<h4><%= link_to juice.name, juice_path(juice) %></h4>
-						<h6><%= juice.manufacturer %></h6>
-						<p><%= juice.description %></p>
-						<p>Rating: <%= rating_for_user juice, current_user, "name", :stars => 5 %></p>
+				<div class="small-12 columns">
+					<div class="panel">
+						<div class="row">
+							<h4><%= link_to juice.name, juice_path(juice) %></h4>
+							<h6><%= juice.manufacturer %></h6>
+							<p><%= juice.description %></p>
+							<p>Rating: <%= rating_for_user juice, current_user, "name", :stars => 5 %></p>
+						</div>
 					</div>
 				</div>
 			</div>

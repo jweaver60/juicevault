@@ -4,7 +4,7 @@
 	<div class="small-12 large-6 columns">
 		<div class="row">
 			<div class="small-12 columns">
-				<div class="product-image"><img src="<%= featured_image(@juice) %>" alt="<%= @juice.name %>" /></div>
+				<div class="product-image" style="background-image:url(<%= featured_image(@juice) %>);"><!-- <img src="" alt="<%= @juice.name %>" /> --></div>
 				<h1><%= @juice.name %></h1>
 				<h2>By: <%= @juice.manufacturer %></h2>
 				<p>Category: <%= @juice.category %></p>
