@@ -35,7 +35,7 @@
 						<h4><%= link_to juice.name, juice_path(juice) %></h4>
 						<h6><%= juice.manufacturer %></h6>
 						<p><%= juice.description %></p>
-						<p>Rating: <%= rating_for_user juice, current_user, "name" %></p>
+						<p>Rating: <%= rating_for_user juice, current_user, "name", :stars => 5 %></p>
 					</div>
 				</div>
 			</div>
