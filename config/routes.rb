@@ -1,5 +1,8 @@
 Juicevault::Application.routes.draw do
-  resources :juices
+  resources :juices do
+    put :favorite, on: :member
+  end
+
   resources :dashboard
 
   devise_for :users

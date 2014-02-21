@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :juices
+  has_many :favorite_juices
+  has_many :favorites, through: :favorite_juices, source: :juice
 end

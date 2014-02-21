@@ -2,10 +2,14 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<h1>My Juices</h1>
+		<h1>Latest Juices</h1>
 		<ul>
 			<% @juices.each do |juice| %>
-				<li><%= juice.name %></li>
+				<li><%= link_to juice.name, juice_path(juice) %></li>
+				<% if user_signed_in? %>
+  				<%= link_to "favorite",   favorite_juice_path(juice, type: "favorite"), method: :put %>
+  				<%= link_to "unfavorite", favorite_juice_path(juice, type: "unfavorite"), method: :put %>
+				<% end %>
 			<% end %>
 		</ul>
 	</div>

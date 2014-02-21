@@ -6,9 +6,11 @@
 	</div>
 </div>
 <div class="row">
-	<% @juices.each do |juice| %>
-		<div class="small-12 large-3 columns">
-			<h2><%= link_to juice.name, juice_path(juice) %></h2>
-		</div>
-	<% end %>
+	<div class="small-12 columns">
+		<ul>
+			<% @juices.each do |juice| %>
+				<li><%= link_to juice.name, juice_path(juice) %></li>
+			<% end %>
+		</ul>
+	</div>
 </div>
