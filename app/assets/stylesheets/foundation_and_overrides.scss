@@ -36,8 +36,8 @@ $row-width: 100%;
 // $total-columns: 12;
 
 // We use these to control various global styles
-// $body-bg: #fff;
-// $body-font-color: #222;
+$body-bg: #f0f0f0;
+$body-font-color: #404040;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
@@ -51,12 +51,12 @@ $row-width: 100%;
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-// $warning-color: #f08a24;
-// $info-color: #a0d3e8;
+$primary-color: #00A19A;
+$secondary-color: #69C2A4;
+$alert-color: #F53D54;
+$success-color: #4FBF63;
+$warning-color: #F2D45C;
+$info-color: #404040;
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -1123,7 +1123,7 @@ $row-width: 100%;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
+$topbar-bg-color: $success-color;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1151,7 +1151,7 @@ $row-width: 100%;
 // $topbar-link-weight: normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727  ;
+$topbar-link-bg-hover: darken($success-color, 10%);
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
