@@ -3,6 +3,7 @@
 <div class="row">
 	<div class="small-12 columns">
 		<h1>Create New Juice</h1>
+		<p>Please check to see if the juice already exists before creating a new one. Duplicates will eventually be removed, with the oldest entry taking highest priority.</p>
 		<% if @juice.errors.any? %>
 	    <div data-alert class="alert-box warning">
 	      <%= pluralize(@juice.errors.count, "error") %> prohibited this juice from being saved:<br />
@@ -21,6 +22,10 @@
   		<%= f.select :category, [ 'Tobacco', 'Fruit', 'Dessert', 'Menthol' ], :prompt => 'Select One' %></div>
   		<div><%= f.label :image_url %><br />
   		<%= f.text_field :image_url %></div>
+  		<div><%= f.label :vendor_url %><br />
+  		<%= f.text_field :vendor_url %></div>
+  		<div><%= f.label :description %><br />
+  			<%= f.text_area :description %></div>
   		<%= f.submit "Create Juice", class: 'button small' %>
 		<% end %>
 

@@ -23,10 +23,30 @@ class JuicesController < ApplicationController
 		@juice = Juice.find(params[:id])
 	end
 
+	def favorite
+		@juice = Juice.find(params[:id])
+    type = params[:type]
+    if type == "favorite"
+    	if current_user.favorites.map(&:id).include?(@juice.id)
+    		redirect_to :back, notice: "Already favorited #{@juice.name}"
+    	else
+      	current_user.favorites << @juice
+      	redirect_to :back, notice: "You favorited #{@juice.name}"
+      end
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@juice)
+      redirect_to :back, notice: "Unfavorited #{@juice.name}"
+
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
+
 	private
 
 	def juice_params
-    params.require(:juice).permit(:name, :manufacturer, :category, :image_url)
+    params.require(:juice).permit(:name, :manufacturer, :category, :image_url, :description, :vendor_url)
   end
 
 end
