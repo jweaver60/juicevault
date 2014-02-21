@@ -2,7 +2,11 @@ class JuicesController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		@juices = Juice.all
+		if params[:search]
+			@juices = Juice.find(:all, :conditions => ['name LIKE ? OR manufacturer LIKE ? OR category LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%"])
+		else
+			@juices = Juice.all
+		end
 	end
 
 	def new
