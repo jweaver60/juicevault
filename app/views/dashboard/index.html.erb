@@ -2,15 +2,42 @@
 
 <div class="row">
 	<div class="small-12 columns">
-		<h1><%= current_user.username %>'s Juices</h1>
+		<h1><%= current_user.username %>'s Juices <small>(#)</small></h1>
 	</div>
 </div>
 <div class="row">
-	<div class="small-12 columns">
-		<ul>
-			<% @juices.each do |juice| %>
-				<li><%= link_to juice.name, juice_path(juice) %></li>
-			<% end %>
-		</ul>
+	<div class="small-12 medium-4 medium-push-8 columns sidebar account">
+		<div class="row panel">
+			<%= image_tag(avatar_url(current_user, 50), :alt => current_user.email, :class => 'avatar') %>
+			<h2>My Account</h2>
+			<div class="row">
+				<div class="small-12 columns">
+					<strong>Username:</strong> Dustin Armstrong
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<strong>Email:</strong> dustin@dustinarmstrong.com
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<strong><a href="#">Edit Account Settings</a></strong>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
+		<% @juices.each do |juice| %>
+			<div class="row">
+				<div class="small-12 columns panel">
+					<div class="row">
+						<h4><%= link_to juice.name, juice_path(juice) %></h4>
+						<h6>Vendor</h6>
+						<p>Juice Description will go right here.</p>
+					</div>
+				</div>
+			</div>
+		<% end %>
 	</div>
 </div>
