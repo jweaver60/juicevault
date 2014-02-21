@@ -38,6 +38,12 @@
 		p {
 			margin-bottom: 0px;
 		}
+		.label {
+			vertical-align: top;
+			padding: 0.2em;
+			margin-top: 9px;
+			margin-left: .5em;
+		}
 	}
 	&:last-child { 
 		border-bottom: 1px solid #d8d8d8;
@@ -45,7 +51,7 @@
 } 
 
 .sidebar {
-	.register, .search {
+	.register, .search, .reviews {
 		border-bottom: none;
 		input[type=text], .postfix {
 			margin-bottom: 0;
