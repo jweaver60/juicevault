@@ -3,17 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .product-image {
 	height: 150px;
-	max-height: 150px;
 	width: 150px;
 	overflow: hidden;
 	background: white;
-	display: table;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: none;
 	margin-right: 1em;
-	img {
-		display: table-cell;
-		vertical-align: middle;
-	}
 	float: left;
+	// img {
+	// 	display: table-cell;
+	// 	height: 150px;
+	// 	width: auto;
+	// 	vertical-align: middle;
+	// }
 }
 h1 {
 	font-weight: 800;
