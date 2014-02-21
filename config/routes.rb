@@ -1,6 +1,8 @@
 Juicevault::Application.routes.draw do
+
   resources :juices do
     put :favorite, on: :member
+    resources :comments
   end
 
   resources :dashboard
