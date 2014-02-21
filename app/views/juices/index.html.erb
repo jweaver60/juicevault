@@ -20,9 +20,9 @@
 		<div class="row panel hide-for-small-only">
 			<h3>New Users</h3>
 			<ul>
-				<li>VapeDude</li>
-				<li>CloudChazer</li>
-				<li>VAPOR_SUCKER</li>
+				<% @recent_users.each do |user| %>
+					<li><%= user.username %></li>
+				<% end %>
 			</ul>
 		</div>
 	</div>
