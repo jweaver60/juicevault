@@ -5,6 +5,8 @@ Juicevault::Application.routes.draw do
     resources :comments
   end
 
+  resources :ratings, only: :update
+
   resources :dashboard
 
   devise_for :users

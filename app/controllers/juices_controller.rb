@@ -23,6 +23,10 @@ class JuicesController < ApplicationController
 	def show
 		@juice = Juice.find(params[:id])
 		@comment = Comment.new
+		@rating = Rating.where(juice_id: @juice.id, user_id: current_user.id).first 
+		unless @rating 
+			@rating = Rating.create(juice_id: @juice.id, user_id: current_user.id, score: 0)
+		end
 	end
 
 	def favorite
