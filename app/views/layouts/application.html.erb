@@ -24,7 +24,9 @@
           <!-- Left Nav Section -->
           <% if user_signed_in? %>
             <ul class="left">
-              <li><%= link_to current_user.username, juices_path %></li>
+              <li>
+                <%= link_to image_tag(avatar_url(current_user, 28), :alt => current_user.email, :class => 'avatar') + current_user.username, dashboard_index_path %>
+              </li>
             </ul>
           <% end %>
           <!-- Right Nav Section -->
