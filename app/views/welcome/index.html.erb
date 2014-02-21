@@ -46,17 +46,13 @@
 		</div>
 	</div>
 	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
-		<div class="row">
-			<div class="small-12 columns panel">
-				<h2>Newest Juices</h2>
-			</div>
-		</div>
 		<% @recent_juices.each do |juice| %>
 			<div class="row">
 				<div class="small-12 columns panel">
 					<div class="row">
 						<h4><%= juice.name %></h4>
 						<h6><%= juice.manufacturer %></h6>
+						<span class="label">New</span>
 					</div>
 					<div class="row">
 						<p><%= juice.description %></p>

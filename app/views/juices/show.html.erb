@@ -14,12 +14,12 @@
 		<div class="row">
 			<div class="small-12 columns">
 				<p><%= @juice.description %></p>
-				<a href="<%= @juice.vendor_url %>" class="button success">Buy it here</a>		
+				<a href="<%= @juice.vendor_url %>" class="button">Buy it here</a>		
 			</div>
 		</div>
 	</div>
-	<div class="small-12 large-6 columns">
-		<div class="row">
+	<div class="small-12 large-6 columns sidebar">
+		<div class="row panel reviews">
 			<div class="small-12 columns">
 				<h3 class="h1">Reviews</h3>
 				<% if @juice.comments.present? %>
@@ -31,14 +31,13 @@
 				<% end %>
 			</div>
 		</div>
-
-		<div class="row">
+		<div class="row panel">
 			<div class="small-12 columns">
 				<h3 class="h4">Add Review</h1>
 				<%= form_for ([@juice, @comment]) do |f| %>
 					<div><%= f.label :body, "New Review" %><br />
 					<%= f.text_area :body %></div>
-					<%= f.submit "Submit Review", class: "button tiny" %>
+					<%= f.submit "Submit Review", class: "button" %>
 				<% end %>
 			</div>
 		</div>	
