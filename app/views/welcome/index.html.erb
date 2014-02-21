@@ -8,16 +8,31 @@
 </div>
 <div class="row">
 	<div class="small-12 medium-4 medium-push-8 columns sidebar">
-		<div class="row panel register">
-			<div class="hide-for-small-only">
-				<h3>Why Register?</h3>
-				<ul>
-					<li>Track the juices you've tried</li>
-					<li>Rate the juices you've enjoyed and hated</li>
-					<li>See what juices your friends are using</li>
-				</ul>
+		<div class="row panel search">
+			<div class="row collapse">
+				<div class="small-8 columns">
+					<input type="text" placeholder="Search for a name, brand, or flavor">
+				</div>
+				<div class="small-4 columns">
+					<button class="primary postfix">Search</button>
+				</div>
 			</div>
-			<button class="primary expand">Sign Up For JuiceVault!</button>
+		</div>
+		<div class="row panel register">
+			<% if user_signed_in? %>
+				<h3>Welcome <%= current_user.username %>!</h3>
+				<p><%= link_to 'Looking for a new juice?', juices_path %></p>
+			<% else %>
+				<div class="hide-for-small-only">
+					<h3>Why Register?</h3>
+					<ul>
+						<li>Track the juices you've tried</li>
+						<li>Rate the juices you've enjoyed and hated</li>
+						<li>See what juices your friends are using</li>
+					</ul>
+				</div>
+				<button class="primary expand">Sign Up For JuiceVault!</button>
+			<% end %>
 		</div>
 		<div class="row panel hide-for-small-only">
 			<h3>New Users</h3>
@@ -29,6 +44,11 @@
 		</div>
 	</div>
 	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
+		<div class="row">
+			<div class="small-12 columns panel">
+				<h2>Newest Juices</h2>
+			</div>
+		</div>
 		<div class="row">
 			<div class="small-12 columns panel">
 				<div class="row">

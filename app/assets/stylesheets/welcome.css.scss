@@ -25,6 +25,9 @@
 		margin-bottom: 0;
 		border-bottom: none;
 		padding-left: 2em;
+		.row {
+			padding-left: 2em;
+		}
 		h4, h6 {
 			display: inline-block;
 			
@@ -42,7 +45,13 @@
 } 
 
 .sidebar {
-	.register {
+	.register, .search {
 		border-bottom: none;
+		input[type=text], .postfix {
+			margin-bottom: 0;
+		}
+		.postfix {
+			border: none;
+		}
 	}
 }

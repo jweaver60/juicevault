@@ -19,12 +19,3 @@ h1 {
 	font-weight: 800;
 	margin: .02em;
 }
-.search {
-	@extend .sidebar;
-	input[type=text], .postfix {
-		margin-bottom: 0;
-	}
-	.postfix {
-		border: none;
-	}
-}
