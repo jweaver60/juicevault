@@ -3,7 +3,6 @@ class DashboardController < ApplicationController
 
 	def index
 		@juices = current_user.favorites
-		@ratings = current_user.ratings
 	end
 
 end

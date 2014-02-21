@@ -1,5 +1,6 @@
 Juicevault::Application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :juices do
     put :favorite, on: :member
     resources :comments

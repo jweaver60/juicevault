@@ -26,6 +26,9 @@ gem 'jquery-rails'
 # Use Foundation framework
 gem 'foundation-rails'
 
+# LetsRate functionality
+gem 'letsrate'
+
 # Use Devise for authentication
 gem 'devise'
 
