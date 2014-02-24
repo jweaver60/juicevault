@@ -23,19 +23,21 @@
 	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
 		<% @juices.each do |juice| %>
 			<div class="row">
-				<div class="small-12 columns panel">
-					<div class="row">
-						<h4><%= link_to juice.name, juice_path(juice) %></h4>
-						<h6><%= juice.manufacturer %></h6>
-					</div>
-					<div class="row">
-						<p><%= juice.description %></p>
-						<% if user_signed_in? %>
-			  				<p>
-			  					<%= link_to "favorite",   favorite_juice_path(juice, type: "favorite"), method: :put %>
-			  					<%= link_to "unfavorite", favorite_juice_path(juice, type: "unfavorite"), method: :put %>
-			  				</p>
-						<% end %>
+				<div class="small-12 columns">
+					<div class="panel">
+						<div class="row">
+							<h4><%= link_to juice.name, juice_path(juice) %></h4>
+							<h6><%= juice.manufacturer %></h6>
+						</div>
+						<div class="row">
+							<p><%= juice.description %></p>
+							<% if user_signed_in? %>
+				  				<p>
+				  					<%= link_to "<i class='fa fa-heart'></i>".html_safe,   favorite_juice_path(juice, type: "favorite"), method: :put %>
+				  					<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %>
+				  				</p>
+							<% end %>
+						</div>
 					</div>
 				</div>
 			</div>

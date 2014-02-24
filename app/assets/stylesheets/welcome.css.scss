@@ -43,10 +43,16 @@
 			background-color: #F53D54;
 		}
 	}
-	&:last-child { 
-		border-bottom: 1px solid #d8d8d8;
+	.row {
+		&:last-child { 
+			.panel {
+				&:last-child {
+					border-bottom: 1px solid #d8d8d8;
+				}
+			}
+		}
 	}
-} 
+}
 
 .sidebar {
 	.register, .search, .reviews {
