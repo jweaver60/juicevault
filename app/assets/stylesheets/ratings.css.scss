@@ -1,0 +1,33 @@
+form {
+	&.rating_ballot {
+		input {
+			&.rating_submit {
+				display: none;
+			}
+			&.rating_button {
+				display: none;
+			}
+		}
+		label {
+			&.rating {
+				cursor: pointer;
+				display: block;
+				height: 25px;
+				width: 25px;
+				float: left;
+				margin-left: 0;
+				margin-right: 0.5rem;
+				&.bright {
+					i {
+						color: #F0C827;
+					}
+				}
+				&.glow {
+					i {
+						color: #F2D45C;
+					}
+				}
+			}
+		}
+	}
+}
