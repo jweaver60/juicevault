@@ -4,8 +4,6 @@ class Juice < ActiveRecord::Base
 	has_many :favorited_by, through: :favorite_juices, source: :user
 	has_many :comments
 
-	letsrate_rateable "name"
-
 	validates :name, presence: true
 	validates :manufacturer, presence: true
 	validates :category, presence: true

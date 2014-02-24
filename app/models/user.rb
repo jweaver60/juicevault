@@ -8,5 +8,4 @@ class User < ActiveRecord::Base
   has_many :favorite_juices
   has_many :favorites, through: :favorite_juices, source: :juice
   has_many :comments
-  letsrate_rater
 end

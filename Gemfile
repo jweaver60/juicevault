@@ -27,7 +27,7 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 
 # LetsRate functionality
-gem 'letsrate'
+# gem 'letsrate'
 
 # For Heroku
 gem 'rails_12factor', group: :production

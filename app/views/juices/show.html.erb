@@ -8,7 +8,6 @@
 				<h1><%= @juice.name %></h1>
 				<h2>By: <%= @juice.manufacturer %></h2>
 				<p>Category: <%= @juice.category %></p>
-				<p>Rating: <%= rating_for @juice, "name" %></p>
 			</div>	
 		</div>
 		<div class="row">
@@ -29,7 +28,6 @@
 								<%= image_tag(avatar_url(comment.user, 50)) %>
 							</div>
 							<div class="small-10 columns">
-								<h4><%= comment.user.username %> <%= rating_for_user @juice, current_user, "name", :star => 5 %></h4>
 							</div>
 						</div>
 						<div class="row review-container">
