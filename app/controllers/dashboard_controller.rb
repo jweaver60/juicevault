@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
 
 	def index
 		@juices = current_user.favorites
+		@juices = Kaminari.paginate_array(@juices).page(params[:page])
 	end
 
 end
