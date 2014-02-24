@@ -6,8 +6,8 @@
 	</div>
 </div>
 <div class="row">
-	<div class="small-12 medium-4 medium-push-8 columns sidebar">
-		<div class="row panel search">
+	<div class="small-12 large-4 large-push-8 columns sidebar">
+		<div class="panel search">
 			<%= form_tag juices_path, :method => 'GET' do %>
 				<div class="row collapse">
 					<div class="small-8 columns">
@@ -20,28 +20,28 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
+	<div class="small-12 large-8 large-pull-4 columns juicefeed">
 		<% @juices.each do |juice| %>
-			<div class="row">
-				<div class="small-12 columns">
-					<div class="panel">
+			<div class="panel">
+				<div class="row">
+					<div class="small-12 large-11 columns">
 						<div class="row">
 							<h4><%= link_to juice.name, juice_path(juice) %></h4>
 							<h6><%= juice.manufacturer %></h6>
-							<p>Average Rating: <%= juice.average_rating %>/5</p>
-						</div>
-						<div class="row">
 							<p><%= juice.description %></p>
-							<% if user_signed_in? %>
-				  				<p>
-				  					<% if current_user.favorites.map(&:id).include?(juice.id) %>
-				  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %>
-				  					<% else %>
-				  						<%= link_to "<i class='fa fa-heart'></i>".html_safe,   favorite_juice_path(juice, type: "favorite"), method: :put %>
-				  					<% end %>
-				  				</p>
-							<% end %>
+							<p class="average-rating">Average Rating: <%= juice.average_rating %>/5</p>
 						</div>
+					</div>
+					<div class="small-12 large-1 column favorite">
+						<% if user_signed_in? %>
+			  				<p>
+			  					<% if current_user.favorites.map(&:id).include?(juice.id) %>
+			  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %>
+			  					<% else %>
+			  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe,   favorite_juice_path(juice, type: "favorite"), method: :put %>
+			  					<% end %>
+			  				</p>
+						<% end %>
 					</div>
 				</div>
 			</div>

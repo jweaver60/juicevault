@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'foundation_mixins_only';
+
 .container {
-	margin-top: 1em;
+	margin-top: 2em;
 }
 
 .avatar {
@@ -24,16 +26,26 @@
 		background: scale-color(#fff, $lightness: -3%);
 		margin-bottom: 0;
 		border-bottom: none;
-		padding: 1.5em 4em;
+		padding: 1.5em 2.5em;
 		h4, h6 {
-			display: inline-block;
-			
+			@media #{$large-up} {
+				display: inline-block;
+			}
 		}
-		h6:before {
-			content: " - "
+		h6 {
+			font-style: italic;
+			margin-bottom: 1em;
+			&:before {
+				@media #{$large-up} {
+					content: " - ";
+				}
+			}
 		}
 		p {
 			margin-bottom: 0px;
+			&.average-rating {
+				margin: .5em 0;
+			}
 		}
 		.label {
 			vertical-align: top;
@@ -42,14 +54,14 @@
 			margin-left: .5em;
 			background-color: #F53D54;
 		}
-	}
-	.row {
-		&:last-child { 
-			.panel {
-				&:last-child {
-					border-bottom: 1px solid #d8d8d8;
-				}
+		.rating_display {
+			text-align: center;
+			@media #{$large-up} {
+				text-align: left;
 			}
+		}
+		&:last-child {
+			border-bottom: 1px solid #d8d8d8;
 		}
 	}
 }

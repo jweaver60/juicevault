@@ -6,54 +6,54 @@
 	</div>
 </div>
 <div class="row">
-	<div class="small-12 medium-4 medium-push-8 columns sidebar account">
-		<div class="row panel">
-			<%= image_tag(avatar_url(current_user, 50), :alt => current_user.email, :class => 'avatar') %>
-			<h2>My Account</h2>
-			<div class="row">
-				<div class="small-12 columns">
-					<strong>Username:</strong> <%= current_user.username %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-12 columns">
-					<strong>Email:</strong> <%= current_user.email %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="small-12 columns">
-					<strong><%= link_to "Edit Account Settings", edit_user_registration_path %></strong>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="small-12 medium-8 medium-pull-4 columns juicefeed">
+	<div class="small-12 medium-6 large-8 columns juicefeed">
 		<% @juices.each do |juice| %>
+			<div class="panel">
+				<div class="row">
+					<h4><%= link_to juice.name, juice_path(juice) %></h4>
+					<h6><%= juice.manufacturer %></h6>
+					<p><%= juice.description %></p>
+					<%= form_for juice_ballot(juice.id), :remote => true, :html => { :class => 'rating_display' } do |f| %>
+						<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
+						<%= radio_button_tag "rating[value]", 1, current_user_ratings(juice.id) == 1, :class => "rating_button" %>
+						<%= f.label "value_2", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "2"} %>
+						<%= radio_button_tag "rating[value]", 2, current_user_ratings(juice.id) == 2, :class => "rating_button" %>
+						<%= f.label "value_3", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "3"} %>
+						<%= radio_button_tag "rating[value]", 3, current_user_ratings(juice.id) == 3, :class => "rating_button" %>
+						<%= f.label "value_4", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "4"} %>
+						<%= radio_button_tag "rating[value]", 4, current_user_ratings(juice.id) == 4, :class => "rating_button" %>
+						<%= f.label "value_5", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "5"} %>
+						<%= radio_button_tag "rating[value]", 5, current_user_ratings(juice.id) == 5, :class => "rating_button" %>
+						<%= hidden_field_tag "juice_id", juice.id %>
+						<%= f.submit :Submit, class: "rating_submit" %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="small-12 medium-6 large-4 columns sidebar account">
+		<div class="panel">
 			<div class="row">
 				<div class="small-12 columns">
-					<div class="panel">
-						<div class="row">
-							<h4><%= link_to juice.name, juice_path(juice) %></h4>
-							<h6><%= juice.manufacturer %></h6>
-							<p><%= juice.description %></p>
-							<%= form_for juice_ballot(juice.id), :remote => true, :html => { :class => 'rating_display' } do |f| %>
-								<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
-								<%= radio_button_tag "rating[value]", 1, current_user_ratings(juice.id) == 1, :class => "rating_button" %>
-								<%= f.label "value_2", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "2"} %>
-								<%= radio_button_tag "rating[value]", 2, current_user_ratings(juice.id) == 2, :class => "rating_button" %>
-								<%= f.label "value_3", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "3"} %>
-								<%= radio_button_tag "rating[value]", 3, current_user_ratings(juice.id) == 3, :class => "rating_button" %>
-								<%= f.label "value_4", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "4"} %>
-								<%= radio_button_tag "rating[value]", 4, current_user_ratings(juice.id) == 4, :class => "rating_button" %>
-								<%= f.label "value_5", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "5"} %>
-								<%= radio_button_tag "rating[value]", 5, current_user_ratings(juice.id) == 5, :class => "rating_button" %>
-								<%= hidden_field_tag "juice_id", juice.id %>
-								<%= f.submit :Submit, class: "rating_submit" %>
-							<% end %>
+					<%= image_tag(avatar_url(current_user, 50), :alt => current_user.email, :class => 'avatar') %>
+					<h2>My Account</h2>
+					<div class="row">
+						<div class="small-12 columns">
+							<strong>Username:</strong> <%= current_user.username %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns">
+							<strong>Email:</strong> <%= current_user.email %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns">
+							<strong><%= link_to "Edit Account Settings", edit_user_registration_path %></strong>
 						</div>
 					</div>
 				</div>
 			</div>
-		<% end %>
+		</div>
 	</div>
 </div>
