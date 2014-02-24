@@ -36,17 +36,17 @@
 							<h4><%= link_to juice.name, juice_path(juice) %></h4>
 							<h6><%= juice.manufacturer %></h6>
 							<p><%= juice.description %></p>
-							<%= form_for juice_ballot(juice), :remote => true, :html => { :class => 'rating_ballot' } do |f| %>
+							<%= form_for juice_ballot(juice.id), :remote => true, :html => { :class => 'rating_display' } do |f| %>
 								<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
-								<%= radio_button_tag "rating[value]", 1, current_user_rating(juice) == 1, :class => "rating_button" %>
+								<%= radio_button_tag "rating[value]", 1, current_user_ratings(juice.id) == 1, :class => "rating_button" %>
 								<%= f.label "value_2", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "2"} %>
-								<%= radio_button_tag "rating[value]", 2, current_user_rating(juice) == 2, :class => "rating_button" %>
+								<%= radio_button_tag "rating[value]", 2, current_user_ratings(juice.id) == 2, :class => "rating_button" %>
 								<%= f.label "value_3", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "3"} %>
-								<%= radio_button_tag "rating[value]", 3, current_user_rating(juice) == 3, :class => "rating_button" %>
+								<%= radio_button_tag "rating[value]", 3, current_user_ratings(juice.id) == 3, :class => "rating_button" %>
 								<%= f.label "value_4", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "4"} %>
-								<%= radio_button_tag "rating[value]", 4, current_user_rating(juice) == 4, :class => "rating_button" %>
+								<%= radio_button_tag "rating[value]", 4, current_user_ratings(juice.id) == 4, :class => "rating_button" %>
 								<%= f.label "value_5", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "5"} %>
-								<%= radio_button_tag "rating[value]", 5, current_user_rating(juice) == 5, :class => "rating_button" %>
+								<%= radio_button_tag "rating[value]", 5, current_user_ratings(juice.id) == 5, :class => "rating_button" %>
 								<%= hidden_field_tag "juice_id", juice.id %>
 								<%= f.submit :Submit, class: "rating_submit" %>
 							<% end %>

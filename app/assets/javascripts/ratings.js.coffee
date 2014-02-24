@@ -1,6 +1,8 @@
 $ ->
-	checkedId = $('form.rating_ballot > input:checked').attr('id')
-	$('form.rating_ballot > label[for=' + checkedId + ']').prevAll().andSelf().addClass('bright')
+	forms = $('form.rating_ballot, form.rating_display')
+	for form in forms
+		checkedId = $('form#' + form.id + ' > input:checked').attr('id')
+		$('form#' + form.id + ' > label[for=' + checkedId + ']').prevAll().andSelf().addClass('bright')
 
 $(document).ready ->
 	
@@ -13,5 +15,5 @@ $(document).ready ->
   	$(@).siblings().removeClass('bright')
   	$(@).prevAll().andSelf().addClass('bright')
 
-  $('form.rating_ballot').change ->
-  	$('form.rating_ballot').submit()
+	$('form.rating_ballot').change ->
+		$('form.rating_ballot').submit()

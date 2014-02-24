@@ -30,4 +30,10 @@ form {
 			}
 		}
 	}
+	&.rating_display {
+		@extend .rating_ballot;
+		label.rating {
+			cursor: default;
+		}
+	}
 }

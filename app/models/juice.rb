@@ -19,8 +19,12 @@ class Juice < ActiveRecord::Base
 			@value += rating.value
 		end
 		@total = self.ratings.size
-		@average = @value.to_f / @total.to_f
-		@average.round
+		@answer = @value.to_f / @total.to_f
+		if @answer.nan?
+			@answer = 0
+		else
+			@answer
+		end
 	end
 
 end
