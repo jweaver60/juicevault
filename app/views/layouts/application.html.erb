@@ -31,7 +31,7 @@
           <ul class="right">
             <% if user_signed_in? %>
               <li><%= link_to 'Juices', juices_path %></li>
-              <li><%= link_to 'New Juice', new_juice_path %></li>
+              <li><%= link_to 'Add Juice', new_juice_path %></li>
               <li class="has-dropdown">
                 <%= link_to image_tag(avatar_url(current_user, 28), :alt => current_user.email, :class => 'avatar') + current_user.username, dashboard_index_path %>
                 <ul class="dropdown">
