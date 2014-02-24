@@ -1,15 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  juice_id: 
-  user_id: 
-  score: 1
-  default: MyString
-  0: MyString
+  user_id: 1
+  juice_id: 1
+  value: 1
 
 two:
-  juice_id: 
-  user_id: 
-  score: 1
-  default: MyString
-  0: MyString
+  user_id: 1
+  juice_id: 1
+  value: 1
