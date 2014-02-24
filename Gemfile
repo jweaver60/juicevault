@@ -29,6 +29,9 @@ gem 'foundation-rails'
 # LetsRate functionality
 # gem 'letsrate'
 
+# Use Kaminari for pagination
+gem 'kaminari'
+
 # For Heroku
 gem 'rails_12factor', group: :production
 
