@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div class="fixed">
+    <div class="sticky">
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
@@ -29,8 +29,8 @@
           <% end %>
           <!-- Right Nav Section -->
           <ul class="right">
-              <li><%= link_to 'Juices', juices_path %></li>
             <% if user_signed_in? %>
+              <li><%= link_to 'Juices', juices_path %></li>
               <li><%= link_to 'New Juice', new_juice_path %></li>
               <li class="has-dropdown">
                 <%= link_to image_tag(avatar_url(current_user, 28), :alt => current_user.email, :class => 'avatar') + current_user.username, dashboard_index_path %>
