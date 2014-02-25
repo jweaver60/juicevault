@@ -29,6 +29,9 @@ gem 'foundation-rails'
 # LetsRate functionality
 # gem 'letsrate'
 
+# New Relic for monitoring performance
+gem 'newrelic_rpm'
+
 # Use Kaminari for pagination
 gem 'kaminari'
 
