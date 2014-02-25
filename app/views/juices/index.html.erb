@@ -24,7 +24,7 @@
 		<% @juices.each do |juice| %>
 			<div class="panel">
 				<div class="row">
-					<div class="small-12 large-11 columns">
+					<div class="small-12 large-10 columns">
 						<div class="row">
 							<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"></div>
 							<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
@@ -33,7 +33,7 @@
 							<p class="average-rating">Average Rating: <%= juice.average_rating %>/5</p>
 						</div>
 					</div>
-					<div class="small-12 large-1 column favorite">
+					<div class="small-12 large-2 column favorite">
 						<% if user_signed_in? %>
 			  				<p>
 			  					<% if current_user.favorites.map(&:id).include?(juice.id) %>
