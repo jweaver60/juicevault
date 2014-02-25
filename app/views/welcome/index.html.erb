@@ -49,3 +49,11 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<% @juices.each do |juice| %>
+		<div class="small-12 large-3 columns">
+			<%= juice.name %>
+			<%= juice.manufacturer %>
+		</div>
+	<% end %>
+</div>
