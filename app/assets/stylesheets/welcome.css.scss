@@ -56,6 +56,12 @@ h1 {
 				display: inline-block;
 			}
 		}
+		h4 {
+			&.juice-name {
+				font-weight: 500;
+				font-size: 1.2em;
+			}
+		}
 		h6 {
 			font-style: italic;
 			margin-bottom: 1em;

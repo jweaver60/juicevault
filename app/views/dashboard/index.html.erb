@@ -10,7 +10,8 @@
 		<% @juices.each do |juice| %>
 			<div class="panel">
 				<div class="row">
-					<h4><%= link_to juice.name, juice_path(juice) %></h4>
+					<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"></div>
+					<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
 					<h6><%= juice.manufacturer %></h6>
 					<p><%= juice.description %></p>
 					<%= form_for juice_ballot(juice.id), :remote => true, :html => { :class => 'rating_display' } do |f| %>

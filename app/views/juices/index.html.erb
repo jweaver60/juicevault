@@ -24,12 +24,10 @@
 		<% @juices.each do |juice| %>
 			<div class="panel">
 				<div class="row">
-					<div class="small-12 large-4 columns">
-						<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"><!-- <img src="" alt="<%= juice.name %>" /> --></div>
-					</div>
-					<div class="small-12 large-7 columns">
+					<div class="small-12 large-11 columns">
 						<div class="row">
-							<h4><%= link_to juice.name, juice_path(juice) %></h4>
+							<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"></div>
+							<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
 							<h6><%= juice.manufacturer %></h6>
 							<p><%= juice.description %></p>
 							<p class="average-rating">Average Rating: <%= juice.average_rating %>/5</p>
