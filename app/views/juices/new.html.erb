@@ -6,25 +6,25 @@
 		<p>Please search to see if the juice already exists before creating a new one. Duplicates will eventually be removed, with the oldest entry taking highest priority.</p>
 		<% if @juice.errors.any? %>
 	    <div data-alert class="alert-box warning">
-	      <%= pluralize(@juice.errors.count, "error") %> prohibited this juice from being saved:<br />
+	      <%= pluralize(@juice.errors.count, "error") %> prohibited this juice from being saved:
 	      <% @juice.errors.full_messages.each do |msg| %>
-	        <%= "- " + msg %><br />
+	        <%= "- " + msg %><br>
 	      <% end %>
 	      <a href="#" class="close">&times;</a>
 	    </div>
   	<% end %>
 		<%= form_for @juice, url: {action: "create"} do |f| %>
-  		<div><%= f.label :name %><br />
+  		<div><%= f.label :name %>
   		<%= f.text_field :name %></div>
-  		<div><%= f.label :manufacturer %><br />
+  		<div><%= f.label :manufacturer %>
   		<%= f.text_field :manufacturer %></div>
-  		<div><%= f.label :category %><br />
+  		<div><%= f.label :category %>
   		<%= f.select :category, [ 'Tobacco', 'Fruit', 'Dessert', 'Menthol' ], :prompt => 'Select One' %></div>
-  		<div><%= f.label :image_url %><br />
+  		<div><%= f.label :image_url %>
   		<%= f.text_field :image_url %></div>
-  		<div><%= f.label :vendor_url %><br />
+  		<div><%= f.label :vendor_url %>
   		<%= f.text_field :vendor_url %></div>
-  		<div><%= f.label :description %><br />
+  		<div><%= f.label :description %>
   			<%= f.text_area :description %></div>
   		<%= f.submit "Create Juice", class: 'button small' %>
 		<% end %>
