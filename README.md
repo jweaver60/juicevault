@@ -12,3 +12,4 @@ This is just the beginning.
 	* PG/VG Ratio
 * Editing Juices
 * Toggle Favorite on Submit
+* Pre HTTP
