@@ -10,6 +10,11 @@
 				<h3>Category: <%= @juice.category %></h3>
 				<h4>Average Rating: <%= @juice.average_rating %>/5</h4>
 				<p class="description"><%= @juice.description %></p>
+				<% if current_user.favorites.map(&:id).include?(@juice.id) %>
+					<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(@juice, type: "unfavorite"), method: :put %>
+				<% else %>
+					<%= link_to "<i class='fa fa-heart-o'></i>".html_safe,   favorite_juice_path(@juice, type: "favorite"), method: :put %>
+				<% end %>
 				<div class="row">
 					<div class="small-12 medium-4 medium-push-8 large-6 large-push-6 columns rating">
 						Your Rating:

@@ -14,6 +14,7 @@
 					<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
 					<h6><%= juice.manufacturer %></h6>
 					<p><%= juice.description %></p>
+					<p><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %></p>
 					<%= form_for juice_ballot(juice.id), :remote => true, :html => { :class => 'rating_display' } do |f| %>
 						<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
 						<%= radio_button_tag "rating[value]", 1, current_user_ratings(juice.id) == 1, :class => "rating_button" %>
