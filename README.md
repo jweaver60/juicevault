@@ -11,5 +11,6 @@ This is just the beginning.
 	* Nicotine Level
 	* PG/VG Ratio
 * Editing Juices
+	* Error reporting
 * Toggle Favorite on Submit
 * Pre HTTP
