@@ -8,52 +8,15 @@
 	</div>
 </div>
 <div class="row">
-	<div class="small-12 hide-for-small medium-3 columns sidebar">
-		<div class="homepanel">
-			<h3>Track Your Juices</h3>
-			<ul>
-				<li>Track the juices you've tried</li>
-				<li>Rate the juices you've enjoyed and hated</li>
-				<li>See what juices your friends are using</li>
-			</ul>
-		</div>
-	</div>
-	<div class="small-12 hide-for-small medium-3 columns sidebar">
-		<div class="homepanel">
-			<h3>Track Your Juices</h3>
-			<ul>
-				<li>Track the juices you've tried</li>
-				<li>Rate the juices you've enjoyed and hated</li>
-				<li>See what juices your friends are using</li>
-			</ul>
-		</div>
-	</div>
-	<div class="small-12 hide-for-small medium-3 columns sidebar">
-		<div class="homepanel">
-			<h3>Track Your Juices</h3>
-			<ul>
-				<li>Track the juices you've tried</li>
-				<li>Rate the juices you've enjoyed and hated</li>
-				<li>See what juices your friends are using</li>
-			</ul>
-		</div>
-	</div>
-	<div class="small-12 hide-for-small medium-3 columns sidebar">
-		<div class="homepanel">
-			<h3>Track Your Juices</h3>
-			<ul>
-				<li>Track the juices you've tried</li>
-				<li>Rate the juices you've enjoyed and hated</li>
-				<li>See what juices your friends are using</li>
-			</ul>
-		</div>
-	</div>
-</div>
-<div class="row">
+	<hr>
+	<h3 class="recent-title text-center">Most Recent Juices</h3>
 	<% @juices.each do |juice| %>
-		<div class="small-12 large-3 columns">
-			<%= juice.name %>
-			<%= juice.manufacturer %>
+		<div class="small-12 medium-6 large-3 columns sidebar">
+			<div class="homepanel">
+				<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"></div>
+				<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
+				<h6><%= juice.manufacturer %></h6>
+			</div>
 		</div>
 	<% end %>
 </div>

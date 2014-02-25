@@ -38,10 +38,19 @@ h1 {
 	}
 }
 
+.recent-title {
+	font-size: 1.5em;
+	margin: 1.5em;
+}
+
 .homepanel {
 	@include panel(white);
+	min-height: 40px;
 	h3 {
 		font-weight: 800;
+	}
+	.product-image {
+		width: 100%;
 	}
 }
 
