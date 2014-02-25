@@ -1,5 +1,5 @@
 class JuicesController < ApplicationController
-	before_filter :authenticate_user!, :except => :index
+	before_filter :authenticate_user!, :except => [:index, :show]
 
 	def index
 		if params[:search]
