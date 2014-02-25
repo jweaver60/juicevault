@@ -86,6 +86,12 @@
 	}
 }
 
+i {
+	&.green-drop {
+		color: $primary-color;
+	}
+}
+
 .sidebar {
 	.register, .search, .reviews {
 		border-bottom: none;

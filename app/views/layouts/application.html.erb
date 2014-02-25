@@ -18,9 +18,9 @@
         <ul class="title-area">
           <li class="name">
             <% if user_signed_in? %>
-              <h1><%= link_to 'JuiceVault <small>(beta)</small>'.html_safe, dashboard_index_path %></h1>
+              <h1><%= link_to '<i class=\'fa fa-tint green-drop\'></i> JuiceVault <small>(beta)</small>'.html_safe, dashboard_index_path %></h1>
             <% else %>
-              <h1><%= link_to 'JuiceVault <small>(beta)</small>'.html_safe, root_path %></h1>
+              <h1><%= link_to '<i class=\'fa fa-tint green-drop\'></i> JuiceVault <small>(beta)</small>'.html_safe, root_path %></h1>
             <% end %>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
