@@ -24,7 +24,7 @@
   		<%= f.text_field :image_url %></div>
   		<div><%= f.label :vendor_url %>
   		<%= f.text_field :vendor_url %></div>
-  		<div><%= f.label :description %>
+  		<div><%= f.label :description, "Vendor Description (you can review the juice after creating it)" %>
   			<%= f.text_area :description %></div>
   		<%= f.submit "Create Juice", class: 'button small' %>
 		<% end %>
