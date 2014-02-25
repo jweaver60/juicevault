@@ -18,9 +18,9 @@
         <ul class="title-area">
           <li class="name">
             <% if user_signed_in? %>
-              <h1><%= link_to 'JuiceVault', dashboard_index_path %></h1>
+              <h1><%= link_to 'JuiceVault <small>(beta)</small>'.html_safe, dashboard_index_path %></h1>
             <% else %>
-              <h1><%= link_to 'JuiceVault', root_path %></h1>
+              <h1><%= link_to 'JuiceVault <small>(beta)</small>'.html_safe, root_path %></h1>
             <% end %>
           </li>
           <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
@@ -70,6 +70,13 @@
       <%= yield %>
 
     </div>
+    <footer class="sitefooter">
+      <div class="row">
+        <div class="small-12 columns">
+            &copy; 2014 JuiceVault
+        </div>
+      </div>
+    </footer>
     <%= javascript_include_tag "application" %>
     <script type="text/javascript" data-turbolinks-eval="false"></script>
   </body>
