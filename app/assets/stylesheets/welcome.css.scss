@@ -4,8 +4,24 @@
 
 @import 'foundation_mixins_only';
 
+h1, h2, h3, h4 {
+	line-height: 1;
+}
 h1 {
+	font-weight: 800;
 	margin-bottom: .5em;
+	&.juice-name {
+		margin: 0 0 .1em 0;
+	}
+}
+h2 {
+	margin-bottom: .5em;
+}
+h3, h4 {
+	font-size: 1em;
+	&.h1 {
+		font-size: 2em;
+	}
 }
 
 .name {

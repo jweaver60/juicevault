@@ -5,18 +5,24 @@
 		<div class="row">
 			<div class="small-12 columns">
 				<div class="product-image" style="background-image:url(<%= featured_image(@juice) %>);"><!-- <img src="" alt="<%= @juice.name %>" /> --></div>
-				<h1><%= @juice.name %></h1>
+				<h1 class="juice-name"><%= @juice.name %></h1>
 				<h2>By: <%= @juice.manufacturer %></h2>
 				<h3>Category: <%= @juice.category %></h3>
 				<h4>Average Rating: <%= @juice.average_rating %>/5</h4>
 				<p class="description"><%= @juice.description %></p>
-				<% if current_user.favorites.map(&:id).include?(@juice.id) %>
-					<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(@juice, type: "unfavorite"), method: :put %>
-				<% else %>
-					<%= link_to "<i class='fa fa-heart'></i>".html_safe,   favorite_juice_path(@juice, type: "favorite"), method: :put %>
-				<% end %>
 				<div class="row">
-					<div class="small-12 medium-4 medium-push-8 large-6 large-push-6 columns rating">
+					<div class="small-12 medium-1 large-1 column favorite show-juice text-center">
+						<% if user_signed_in? %>
+			  				<p>
+			  					<% if current_user.favorites.map(&:id).include?(@juice.id) %>
+			  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(@juice, type: "unfavorite"), method: :put %>
+			  					<% else %>
+			  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(@juice, type: "favorite"), method: :put %>
+			  					<% end %>
+			  				</p>
+						<% end %>
+					</div>
+					<div class="small-12 medium-5 large-5 columns rating">
 						Your Rating:
 						<%= form_for juice_ballot(@juice.id), :remote => true, :html => { :class => 'rating_ballot' } do |f| %>
 							<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
@@ -33,7 +39,7 @@
 							<%= f.submit :Submit, class: "rating_submit" %>
 						<% end %>
 					</div>
-					<div class="small-12 medium-8 medium-pull-4 large-6 large-pull-6 columns">
+					<div class="small-12 medium-5 large-4 columns">
 						<a href="<%= @juice.vendor_url %>" class="button expand" target="_blank"><i class="fa fa-shopping-cart"></i> Buy it here</a>
 					</div>
 				</div>

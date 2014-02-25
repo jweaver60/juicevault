@@ -10,25 +10,37 @@
 		<% @juices.each do |juice| %>
 			<div class="panel">
 				<div class="row">
-					<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"></div>
-					<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
-					<h6><%= juice.manufacturer %></h6>
-					<p><%= juice.description %></p>
-					<p><%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %></p>
-					<%= form_for juice_ballot(juice.id), :remote => true, :html => { :class => 'rating_display' } do |f| %>
-						<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
-						<%= radio_button_tag "rating[value]", 1, current_user_ratings(juice.id) == 1, :class => "rating_button" %>
-						<%= f.label "value_2", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "2"} %>
-						<%= radio_button_tag "rating[value]", 2, current_user_ratings(juice.id) == 2, :class => "rating_button" %>
-						<%= f.label "value_3", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "3"} %>
-						<%= radio_button_tag "rating[value]", 3, current_user_ratings(juice.id) == 3, :class => "rating_button" %>
-						<%= f.label "value_4", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "4"} %>
-						<%= radio_button_tag "rating[value]", 4, current_user_ratings(juice.id) == 4, :class => "rating_button" %>
-						<%= f.label "value_5", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "5"} %>
-						<%= radio_button_tag "rating[value]", 5, current_user_ratings(juice.id) == 5, :class => "rating_button" %>
-						<%= hidden_field_tag "juice_id", juice.id %>
-						<%= f.submit :Submit, class: "rating_submit" %>
-					<% end %>
+					<div class="small-12 large-11 columns">
+						<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"></div>
+						<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
+						<h6><%= juice.manufacturer %></h6>
+						<p><%= juice.description %></p>
+						<%= form_for juice_ballot(juice.id), :remote => true, :html => { :class => 'rating_display' } do |f| %>
+							<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
+							<%= radio_button_tag "rating[value]", 1, current_user_ratings(juice.id) == 1, :class => "rating_button" %>
+							<%= f.label "value_2", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "2"} %>
+							<%= radio_button_tag "rating[value]", 2, current_user_ratings(juice.id) == 2, :class => "rating_button" %>
+							<%= f.label "value_3", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "3"} %>
+							<%= radio_button_tag "rating[value]", 3, current_user_ratings(juice.id) == 3, :class => "rating_button" %>
+							<%= f.label "value_4", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "4"} %>
+							<%= radio_button_tag "rating[value]", 4, current_user_ratings(juice.id) == 4, :class => "rating_button" %>
+							<%= f.label "value_5", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "5"} %>
+							<%= radio_button_tag "rating[value]", 5, current_user_ratings(juice.id) == 5, :class => "rating_button" %>
+							<%= hidden_field_tag "juice_id", juice.id %>
+							<%= f.submit :Submit, class: "rating_submit" %>
+						<% end %>
+					</div>
+					<div class="small-12 large-1 column favorite">
+						<% if user_signed_in? %>
+			  				<p>
+			  					<% if current_user.favorites.map(&:id).include?(juice.id) %>
+			  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %>
+			  					<% else %>
+			  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(juice, type: "favorite"), method: :put %>
+			  					<% end %>
+			  				</p>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		<% end %>

@@ -21,22 +21,6 @@
 	float: left;
 	margin-right: .5em;
 }
-h1, h2, h3, h4 {
-	line-height: 1;
-}
-h1 {
-	font-weight: 800;
-	margin: 0 0 .1em 0;
-}
-h2 {
-	margin-bottom: .5em;
-}
-h3, h4 {
-	font-size: 1em;
-	&.h1 {
-		font-size: 2em;
-	}
-}
 .description {
 	margin: 2em 0;
 }
@@ -46,6 +30,9 @@ h3, h4 {
 .favorite {
 	display: table;
 	height: 100%;
+	&.show-juice {
+		margin-top: .5em;
+	}
 	p {
 		text-align: center;
 		height: 100%;
