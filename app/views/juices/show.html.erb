@@ -13,13 +13,13 @@
 				<div class="row">
 					<div class="small-12 medium-1 large-1 column favorite show-juice text-center">
 						<% if user_signed_in? %>
-			  				<p>
-			  					<% if current_user.favorites.map(&:id).include?(@juice.id) %>
-			  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(@juice, type: "unfavorite"), method: :put %>
-			  					<% else %>
-			  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(@juice, type: "favorite"), method: :put %>
-			  					<% end %>
-			  				</p>
+		  				<p>
+		  					<% if current_user.favorites.map(&:id).include?(@juice.id) %>
+		  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(@juice, type: "unfavorite"), method: :put %>
+		  					<% else %>
+		  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(@juice, type: "favorite"), method: :put %>
+		  					<% end %>
+		  				</p>
 						<% end %>
 					</div>
 					<div class="small-12 medium-5 large-5 columns rating">
