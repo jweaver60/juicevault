@@ -26,11 +26,6 @@
           <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
         </ul>
         <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <% if user_signed_in? %>
-            <ul class="left">
-            </ul>
-          <% end %>
           <!-- Right Nav Section -->
           <ul class="right">
             <% if user_signed_in? %>
@@ -41,12 +36,14 @@
                 <ul class="dropdown">
                   <li><%= link_to 'Dashboard', dashboard_index_path %></li>
                   <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+                  <li><a href="http://juicevault.uservoice.com/" target="_blank">Support</a></li>
                   <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
                 </ul>
               </li>
             <% else %>
               <li><%= link_to 'Sign In', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <li><a href="http://juicevault.uservoice.com/" target="_blank">Support</a></li>
             <% end %>
           </ul>
         </section>
