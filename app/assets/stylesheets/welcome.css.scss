@@ -4,6 +4,10 @@
 
 @import 'foundation_mixins_only';
 
+h1 {
+	margin-bottom: .5em;
+}
+
 .name {
 	h1 {
 		small {
@@ -103,8 +107,6 @@
 
 footer {
 	&.sitefooter {
-		background: $info-color;
-		height: 40px;
-		width: 100%;
+
 	}
 }
