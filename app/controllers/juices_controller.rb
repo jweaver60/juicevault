@@ -1,12 +1,12 @@
 class JuicesController < ApplicationController
-	before_filter :authenticate_user!, :except => :index
+	before_filter :authenticate_user!, :except => [:index, :show]
 
 	def index
 		if params[:search]
 			@juices = Juice.where("name ILIKE ? OR manufacturer ILIKE ? OR category ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
 			@juices = Kaminari.paginate_array(@juices).page(params[:page]).per(10)
 		else
-			@juices = Juice.order(:name).page(params[:page])
+			@juices = Juice.order('created_at DESC').page(params[:page])
 		end
 	end
 

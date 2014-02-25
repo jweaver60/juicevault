@@ -13,30 +13,32 @@
 				<div class="row">
 					<div class="small-12 medium-1 large-1 column favorite show-juice text-center">
 						<% if user_signed_in? %>
-			  				<p>
-			  					<% if current_user.favorites.map(&:id).include?(@juice.id) %>
-			  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(@juice, type: "unfavorite"), method: :put %>
-			  					<% else %>
-			  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(@juice, type: "favorite"), method: :put %>
-			  					<% end %>
-			  				</p>
+		  				<p>
+		  					<% if current_user.favorites.map(&:id).include?(@juice.id) %>
+		  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(@juice, type: "unfavorite"), method: :put %>
+		  					<% else %>
+		  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe, favorite_juice_path(@juice, type: "favorite"), method: :put %>
+		  					<% end %>
+		  				</p>
 						<% end %>
 					</div>
 					<div class="small-12 medium-5 large-5 columns rating">
-						Your Rating:
-						<%= form_for juice_ballot(@juice.id), :remote => true, :html => { :class => 'rating_ballot' } do |f| %>
-							<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
-							<%= radio_button_tag "rating[value]", 1, current_user_rating == 1, :class => "rating_button" %>
-							<%= f.label "value_2", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "2"} %>
-							<%= radio_button_tag "rating[value]", 2, current_user_rating == 2, :class => "rating_button" %>
-							<%= f.label "value_3", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "3"} %>
-							<%= radio_button_tag "rating[value]", 3, current_user_rating == 3, :class => "rating_button" %>
-							<%= f.label "value_4", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "4"} %>
-							<%= radio_button_tag "rating[value]", 4, current_user_rating == 4, :class => "rating_button" %>
-							<%= f.label "value_5", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "5"} %>
-							<%= radio_button_tag "rating[value]", 5, current_user_rating == 5, :class => "rating_button" %>
-							<%= hidden_field_tag "juice_id", @juice.id %>
-							<%= f.submit :Submit, class: "rating_submit" %>
+						<% if user_signed_in? %>
+							Your Rating:
+							<%= form_for juice_ballot(@juice.id), :remote => true, :html => { :class => 'rating_ballot' } do |f| %>
+								<%= f.label "value_1", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "1"} %>
+								<%= radio_button_tag "rating[value]", 1, current_user_rating == 1, :class => "rating_button" %>
+								<%= f.label "value_2", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "2"} %>
+								<%= radio_button_tag "rating[value]", 2, current_user_rating == 2, :class => "rating_button" %>
+								<%= f.label "value_3", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "3"} %>
+								<%= radio_button_tag "rating[value]", 3, current_user_rating == 3, :class => "rating_button" %>
+								<%= f.label "value_4", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "4"} %>
+								<%= radio_button_tag "rating[value]", 4, current_user_rating == 4, :class => "rating_button" %>
+								<%= f.label "value_5", "<i class='fa fa-tint fa-2x'></i>".html_safe, {:class => "rating", :id => "5"} %>
+								<%= radio_button_tag "rating[value]", 5, current_user_rating == 5, :class => "rating_button" %>
+								<%= hidden_field_tag "juice_id", @juice.id %>
+								<%= f.submit :Submit, class: "rating_submit" %>
+							<% end %>
 						<% end %>
 					</div>
 					<div class="small-12 medium-5 large-4 columns">
@@ -70,10 +72,14 @@
 		</div>
 		<div class="row panel">
 			<div class="small-12 columns">
-				<h3 class="h4">Add Review</h3>
-				<%= form_for ([@juice, @comment]) do |f| %>
-					<div><%= f.text_area :body %></div>
-					<%= f.submit "Submit Review", class: "button" %>
+				<% if user_signed_in? %>
+					<h3 class="h4">Add Review</h3>
+					<%= form_for ([@juice, @comment]) do |f| %>
+						<div><%= f.text_area :body %></div>
+						<%= f.submit "Submit Review", class: "button" %>
+					<% end %>
+				<% else %>
+					<h3 class="h4"><%= link_to "Sign Up", new_user_registration_path %> to Add a Review!</h3>
 				<% end %>
 			</div>
 		</div>	
