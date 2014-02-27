@@ -1,7 +1,7 @@
 .account {
 	h2 {
-		display: inline-block;
-		vertical-align: bottom;
+		display: inline;
+		vertical-align: middle;
 		clear: right;
 		position: relative;
 	}
@@ -9,6 +9,10 @@
 		.row {
 			margin-top: 1em;
 			margin-bottom: 1em;
+			line-height: 1.3em;
+			&:first-child {
+				margin-top: 0;
+			}
 			&:last-child {
 				margin-bottom: 0;
 			}
