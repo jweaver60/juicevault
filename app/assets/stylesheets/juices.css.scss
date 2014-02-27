@@ -12,10 +12,13 @@
 	background-position: center center;
 	background-repeat: none;
 	margin-bottom: .5em;
-	@media #{$medium-up} {
-		margin-right: 1em;
-		float: left;
+	margin-right: 1em;
+	float: left;
+	&.juice-feed {
+		height: 60px;
+		width: 60px;
 	}
+	
 }
 .user-image {
 	float: left;

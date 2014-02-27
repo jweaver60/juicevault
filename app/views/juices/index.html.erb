@@ -1,56 +1,66 @@
 <% content_for(:title, 'Latest Juices') %>
 
 <div class="row">
-	<div class="small-12 columns">
+	<div class="small-12 medium-8 large-6 small-centered medium-centered large-centered columns">
 		<h1>Latest Juices</h1>
-	</div>
-</div>
-<div class="row">
-	<div class="small-12 large-4 large-push-8 columns sidebar">
-		<div class="panel search">
-			<%= form_tag juices_path, :method => 'GET' do %>
-				<div class="row collapse">
-					<div class="small-8 columns">
-						<%= text_field_tag :search, params[:search], placeholder: "Search for a name, brand or category" %>
-					</div>
-					<div class="small-4 columns">
-						<%= submit_tag "Search", :name => nil, class: "button primary postfix" %>
-					</div>
-				</div>
-			<% end %>
-		</div>
-	</div>
-	<div class="small-12 large-8 large-pull-4 columns juicefeed">
-		<% @juices.each do |juice| %>
-			<div class="panel">
-				<div class="row">
-					<div class="small-12 large-10 columns">
-						<div class="row">
-							<div class="product-image" style="background-image:url(<%= featured_image(juice) %>);"></div>
-							<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
-							<h6><%= juice.manufacturer %></h6>
-							<p><%= juice.description %></p>
-							<p class="average-rating">Average Rating: <%= juice.average_rating %>/5</p>
+		<div class="row">
+			<div class="small-12 columns sidebar">
+				<div class="panel search">
+					<%= form_tag juices_path, :method => 'GET' do %>
+						<div class="row collapse">
+							<div class="small-8 columns">
+								<%= text_field_tag :search, params[:search], placeholder: "Search for a name, brand or category" %>
+							</div>
+							<div class="small-4 columns">
+								<%= submit_tag "Search", :name => nil, class: "button primary postfix" %>
+							</div>
 						</div>
-					</div>
-					<div class="small-12 large-2 column favorite">
-						<% if user_signed_in? %>
-			  				<p>
-			  					<% if current_user.favorites.map(&:id).include?(juice.id) %>
-			  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %>
-			  					<% else %>
-			  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe,   favorite_juice_path(juice, type: "favorite"), method: :put %>
-			  					<% end %>
-			  				</p>
-						<% end %>
-					</div>
+					<% end %>
 				</div>
 			</div>
-		<% end %>
-	</div>
-</div>
-<div class="row">
-	<div class="small-12 large-8 columns">
-		<%= paginate @juices %>
+		</div>
+		<div class="row">
+			<div class="small-12 columns juicefeed">
+				<% @juices.each do |juice| %>
+					<div class="panel">
+						<div class="row">
+							<div class="small-12 large-10 columns">
+								<div class="row">
+									<div class="product-image juice-feed" style="background-image:url(<%= featured_image(juice) %>);"></div>
+									<h4 class="juice-name"><%= link_to juice.name, juice_path(juice) %></h4>
+									<h6><%= juice.manufacturer %></h6>
+								</div>
+							</div>
+							<div class="small-12 large-2 column favorite">
+								<% if user_signed_in? %>
+					  				<p>
+					  					<% if current_user.favorites.map(&:id).include?(juice.id) %>
+					  						<%= link_to "<i class='fa fa-heart'></i>".html_safe, favorite_juice_path(juice, type: "unfavorite"), method: :put %>
+					  					<% else %>
+					  						<%= link_to "<i class='fa fa-heart-o'></i>".html_safe,   favorite_juice_path(juice, type: "favorite"), method: :put %>
+					  					<% end %>
+					  				</p>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					<footer class="panel-footer">
+						<div class="row">
+							<div class="small-6 columns">
+								Category: <%= juice.category %>
+							</div>
+							<div class="small-6 columns">
+								Rating: <%= juice.average_rating %>/5
+							</div>
+						</div>
+					</footer>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<%= paginate @juices %>
+			</div>
+		</div>
 	</div>
 </div>
