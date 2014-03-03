@@ -42,7 +42,7 @@
 						<% end %>
 					</div>
 					<div class="small-12 medium-5 large-4 columns">
-						<a href="<%= @juice.vendor_url %>" class="button expand" target="_blank"><i class="fa fa-shopping-cart"></i> Buy it here</a>
+						<a href="<%= @juice.vendor_url %>" class="button radius expand" target="_blank"><i class="fa fa-shopping-cart"></i> Buy it here</a>
 					</div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 								<p><%= comment.user.username %><br>
 								<%= Date.strptime( comment.created_at.to_s, "%Y-%m-%d %H:%M:%S %Z" ).strftime("%m/%d/%Y") %></p>
 							</div>
-						</div>	
+						</div>
 					<% end %>
 				<% else %>
 					No reviews yet. Be the first to leave a review!
@@ -76,12 +76,12 @@
 					<h3 class="h4">Add Review</h3>
 					<%= form_for ([@juice, @comment]) do |f| %>
 						<div><%= f.text_area :body %></div>
-						<%= f.submit "Submit Review", class: "button" %>
+						<%= f.submit "Submit Review", class: "button radius" %>
 					<% end %>
 				<% else %>
 					<h3 class="h4"><%= link_to "Sign Up", new_user_registration_path %> to Add a Review!</h3>
 				<% end %>
 			</div>
-		</div>	
+		</div>
 	</div>
 </div>
