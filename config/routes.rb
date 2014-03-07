@@ -1,5 +1,11 @@
 Juicevault::Application.routes.draw do
 
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :juices
+    end
+  end
+
   resources :juices do
     put :favorite, on: :member
     resources :comments
