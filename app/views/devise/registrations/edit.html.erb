@@ -24,10 +24,10 @@
       <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password %></div>
 
-      <div><%= f.submit "Update", class: "button small" %></div>
+      <div><%= f.submit "Update", class: "button radius small" %></div>
     <% end %>
     <hr>
     <p>Unhappy with the site? <a href="http://juicevault.uservoice.com/" target="_blank">Leave us some feedback</a> or click below to remove your account.</p>
-    <%= button_to "Cancel my account", registration_path(resource_name), class: "button tiny alert", :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+    <%= button_to "Cancel my account", registration_path(resource_name), class: "button radius tiny alert", :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
   </div>
 </div>
