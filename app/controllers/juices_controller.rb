@@ -8,6 +8,10 @@ class JuicesController < ApplicationController
 		else
 			@juices = Juice.order('created_at DESC').page(params[:page])
 		end
+		respond_to do |format|
+			format.html
+			format.json { render :json => @juices }
+		end
 	end
 
 	def new
