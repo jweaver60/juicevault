@@ -3,6 +3,7 @@ Juicevault::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :juices
+      devise_for :users
     end
   end
 
