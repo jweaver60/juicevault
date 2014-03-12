@@ -3,6 +3,7 @@ Juicevault::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :juices, :only => [:index, :create, :show, :update, :destroy]
+      resources :users
       devise_scope :user do
         post '/sign_in', :to => 'sessions#create'
         delete '/sign_out', :to => 'sessions#destroy'
