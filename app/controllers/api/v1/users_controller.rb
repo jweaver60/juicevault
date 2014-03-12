@@ -12,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
 		@user = User.find_by_authentication_token(params[:auth_token])
 		if @user
 			@user
-		elsif @user.authentication_token == nil
+		else
 			render :status => 401,
 						 :json => { :success => false,
 						 						:info => 'Unauthorized',
