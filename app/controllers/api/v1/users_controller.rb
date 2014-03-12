@@ -3,15 +3,14 @@ class Api::V1::UsersController < ApplicationController
 	respond_to :json
 
 	def index
-		respond_with @user
+		@user
 	end
 
 	private
 
 	def ensure_user_authenticated
-		@user = User.find_by_authentication_token(params[:auth_token])
-		if @user
-			@user
+		if params[:auth_token]
+			@user = User.find_by_authentication_token(params[:auth_token])
 		else
 			render :status => 401,
 						 :json => { :success => false,
